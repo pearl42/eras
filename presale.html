@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Tahoma;
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 80%;
+            }
+            .header {
+                margin-top:0px;
+            }
+        }
+        @media (max-width: 1000px) {
+            .header {
+                margin-top:0px;
+                height:30vh;
+            }
+        }
+        @media (min-width: 1000px) {
+            .header {
+                margin-top:-80px;
+                height:40vh;
+            }
+        }
+
+        .header {
+            background-image: url('nowords.png');
+            background-size: cover;
+            color: #fff;
+            /*padding: 20px;*/
+            text-align: left;
+            /*height: 30vh;*/
+            display: flex;
+            align-items: center;
+            position: relative;
+            min-width: 100vw;
+            opacity: 0.8;
+        }
+
+        .ticketmaster-text {
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            color: #fff;
+        }
+
+        .header-info {
+            max-width: 600px;
+            position: absolute;
+            bottom: 10px;
+            margin-left:20px;
+        }
+
+        .progress-container {
+            text-align: center;
+            max-width: 88%;
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .queue-container {
+            text-align: center;
+            max-width: 92%;
+            width: 800px;
+            margin: 20px auto 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.7);
+        }
+
+        .queue-message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .queue-progress-bar {
+            background-color: #ccc;
+            height: 10px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .queue-progress-highlight {
+            background: linear-gradient(to right, #0f5ee3, #d642ff);
+            border-radius: 10px;
+            height: 100%;
+            width: 1%;
+            position: absolute;
+        }
+
+        .progress-bar {
+            background-color: #ccc;
+            height: 2px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #007bff;      
+            position: absolute;
+        }
+
+        .circle:nth-child(1) {
+            left: 0%;
+        }
+
+        .circle:nth-child(2) {
+            left: 33%;
+        }
+
+        .circle:nth-child(3) {
+            left: 67%;
+        }
+
+        .circle:nth-child(4) {
+            left: 100%;
+            background-color: #ccc;
+        }
+
+        .progress-highlight {
+            background-color: #007bff;
+            border-radius: 10px;
+            height: 100%;
+            width: 67%;
+            position: relative;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            margin: 20px -67px 20px -36px;
+            color:white;
+            font-weight:bold;
+        }
+
+        .queue-progress-text {
+            font-size: 2.5em;
+        }
+
+        .people-ahead-text {
+            font-size: 0.7em;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .formnow {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div style = "position:absolute;background-color:#2c324c;height:60vh;width:100vw;z-index:-999;"></div>
+    <div class="header">
+        <div class="ticketmaster-text">ticketmimester</div>
+        <div class="header-info">
+            <p>SAT  ·  NOV 11, 2023  ·  7PM</p>
+            <h1>Pearliewhirl  |  The Eras Party</h1>
+            <p>Pearl's House - Kirkland, WA</p>
+        </div>
+    </div>
+    <div style="height:7px;background-color:darkgrey;width:100vw;"></div>
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle" style="background-color: #ccc;"></div>
+            <div class="progress-highlight"></div>
+        </div>
+        <div class="progress-steps">
+            <div class="progress-step">The Lobby</div>
+            <div class="progress-step">Waiting Room</div>
+            <div class="progress-step">Queue</div>
+            <div class="progress-step">Pick Your Seats</div>
+        </div>
+    </div>
+    <div class="queue-container">
+        <div id = "OGqueue">
+        <div class="queue-message">
+            <p>You Are Now in The Queue</p>
+            <a id="numtext" style="text-decoration:none;"><div class="queue-progress-text">2000+</div></a>
+        </div>
+        <div class="people-ahead-text">PEOPLE AHEAD OF YOU</div>
+        <div class="queue-progress-bar">
+            <div class="queue-progress-highlight"></div>
+        </div>
+        <div style="font-size:0.7em;border-top-color:grey;border-top-style:dashed;border-top-width:1px;opacity:0.7;padding:15px;margin-top:40px;">QUEUE ID: F903H-FHE8K-29KNP-EN983-2KNDJ</div>
+        </div>
+        <div class = 'formnow'>
+            <h1>This presale code has 2 remaining tickets associated with it</h1>
+            <p>Please select the # of tickets you need for this event:</p>
+            <form action="https://formie.io/form/93b8d2fd-fdb3-450b-8cb5-e9579e63934f" method="POST"></form>
+                <!-- Optional: Redirect to your success page 
+                <input name="_redirect" type="hidden" value="https://yoursite/success"> -->
+        
+                <!-- Optional: Redirect to your error page 
+                <input name="_redirect_error" type="hidden" value="https://yoursite/error"> -->
+        
+                <input id='namebox' name='name' type='text'>
+                <select name='of-tickets'>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+        
+                <button>Submit</button>
+            </form>
+            <p>Ticket type: <strong>General Admission</strong>  -  <i>Free</i></p>
+            </div>
+    </div>
+
+    <script>
+        function updateQueueCount() {
+            const queueProgressText = document.querySelector('.queue-progress-text');
+            const queueProgressHighlight = document.querySelector('.queue-progress-highlight');
+            const peopleAheadText = document.querySelector('.people-ahead-text');
+            document.getElementById('namebox').setAttribute('value', 'Kazu');
+
+            setTimeout(function() {
+                queueProgressText.textContent = '1996';
+                queueProgressHighlight.style.width = '15%';
+            }, 5000);
+
+            setTimeout(function() {
+                queueProgressText.textContent = '1109';
+                queueProgressHighlight.style.width = '54%';
+            }, 10000);
+
+            setTimeout(function() {
+                queueProgressText.textContent = '27';
+                queueProgressHighlight.style.width = '92%';
+            }, 15000);
+
+            // Add the "Get ready" event
+            setTimeout(function() {
+                queueProgressText.textContent = 'Get ready';
+                queueProgressHighlight.style.width = '100%';
+                peopleAheadText.style.opacity = 0; /* Update opacity to 0 after 20 seconds */
+            }, 20000);
+            setTimeout(function() {
+                queueProgressText.textContent = 'Get ready.';
+            }, 21000);
+            setTimeout(function() {
+                queueProgressText.textContent = 'Get ready..';
+            }, 22000);
+            setTimeout(function() {
+                queueProgressText.textContent = 'Get ready...';
+            }, 23000);
+            setTimeout(function() {
+                //queueProgressText.textContent = 'PICK YOUR SEATS >';
+                //queueProgressText.setAttribute('font-size', '1em');
+                //peopleAheadText.style.opacity = 0.7;
+                //peopleAheadText.textContent = 'PICK YOUR SEATS'
+                //document.getElementById('numtext').setAttribute('href', 'https://stackoverflow.com/questions/20109811/vertical-align-in-header-elements');
+                //window.location.href = 'https://stackoverflow.com/questions/20109811/vertical-align-in-header-elements';
+                document.querySelector('.progress-highlight').style.width = "100%";
+                //document.querySelectorAll('.circle').style.backgroundColor = '#007bff';
+                document.getElementById('OGqueue').style.display = "none";
+                document.querySelector('.formnow').style.display = "block";
+            }, 26000);
+        }
+
+        // Initial delay before updating the queue progress
+        setTimeout(updateQueueCount, 0);
+    </script>
+</body>
+</html>
