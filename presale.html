@@ -65,6 +65,18 @@
             font-style: italic;
             color: #fff;
         }
+        .name-text {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            border-radius:8px;
+            padding:10px;
+            background-color:rgba(0, 0, 0, 0.3);
+            z-index:99;
+        }
 
         .header-info {
             max-width: 600px;
@@ -188,6 +200,7 @@
 </head>
 <body>
     <div style = "position:absolute;background-color:#2c324c;height:60vh;width:100vw;z-index:-999;"></div>
+    <div class="name-text" id="name-text"></div>
     <div class="header">
         <div class="ticketmaster-text">ticketmimester</div>
         <div class="header-info">
@@ -340,9 +353,13 @@
             //document.getElementsByName('name').setAttribute('value', guest);
             //document.getElementsByName('name').values = guest;
             document.getElementById('name').value = guest;
+            document.getElementById('name-text').innerText = 'Welcome, ' +guest;
             //document.getElementsByName('name').s
             //document.getElementById('namebox').style.display = 'none';
         }
     </script>
 </body>
+<footer style="opacity:0.6;padding:20px;text-align:center;">
+    <p>Need technical support or event information? Text Ticketmimester Customer Support at 425-200-4103</p>
+</footer>
 </html>
