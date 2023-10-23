@@ -165,27 +165,12 @@
     </div>
     <!--<div style="height:7px;background-color:darkgrey;width:100vw;"></div> -->
     <div class = "wrapmargin" style="padding:20px;">
-    <!--<div class="progress-container">
-        <div class="progress-bar">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle" style="background-color: #ccc;"></div>
-            <div class="progress-highlight"></div>
-        </div>
-        <div class="progress-steps">
-            <div class="progress-step">The Lobby&nbsp;</div>
-            <div class="progress-step">&nbsp;Waiting Room</div>
-            <div class="progress-step">&nbsp;Queue</div>
-            <div class="progress-step">&nbsp;Pick Your Seats</div>
-        </div>
-    </div> -->
     <div class="queue-container">
         <div class = 'formnow'>
             <h1>Presale is happening now!</h1>
             <p>To get tickets now you need an offer code</p>
             <p style="text-align:left;font-weight:bold;">Ticket Options:</p>
-            <ul style="text-align:left;">
+            <ul style="text-align:left;line-height: 1.5em;">
                 <li>Verified Fan Presale</li>
                 <li>Besties Presale</li>
                 <li>Capitol One Presale</li>
@@ -211,7 +196,7 @@
             console.log("is it getting here?")
             if (allcodes.includes(submitval)){
                 console.log("presale code exists!");
-                location.href = '/presale?'+submitval;
+                location.href = '/eras/presale?'+submitval;
                 //console.log('/presale?'+submitval);
             }
             else {
@@ -221,4 +206,7 @@
         
     </script>
 </body>
+<footer style="opacity:0.6;padding:20px;text-align:center;">
+    <p>Need technical support or event information? Text Ticketmimester Customer Support at 425-200-4103</p>
+</footer>
 </html>
