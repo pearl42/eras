@@ -246,7 +246,7 @@
 	method="POST"
 >
     <!-- Optional: Redirect to your success page -->
-    <!--<input name="_redirect" type="hidden" value="https://yoursite/success">-->
+    <input name="_redirect" type="hidden" value="https://pearl42.github.io/eras/presale">
 
     <!-- Optional: Redirect to your error page -->
     <!--<input name="_redirect_error" type="hidden" value="https://yoursite/error">-->
@@ -320,7 +320,7 @@
         // Initial delay before updating the queue progress
         setTimeout(updateQueueCount, 0);
 
-        var querystring = location.search;
+        var querystring = location.search.toUpperCase();
         var guest
         console.log(querystring);
         if (querystring == '?KKLKPW') {
@@ -345,8 +345,10 @@
             guest = 'Ruth';
         } else if (querystring == '?LILKPW'){
             guest = 'Linda and Ian';
-        } else if (querystring == '?LOMLEL'){
-            guest = 'Love of My Life';
+        } else if (querystring == '?GABBO'){
+            guest = 'Gabby';
+        } else {
+            guest = 'guest';
         }
 
         if (querystring != undefined){
@@ -354,8 +356,11 @@
             //document.getElementsByName('name').values = guest;
             document.getElementById('name').value = guest;
             document.getElementById('name-text').innerText = 'Welcome, ' +guest;
+            document.getElementsByName('_redirect')[0].value = 'https://pearl42.github.io/eras/success' + querystring;
             //document.getElementsByName('name').s
             //document.getElementById('namebox').style.display = 'none';
+        } else {
+            document.getElementsByName('_redirect')[0].value = 'https://pearl42.github.io/eras/success?DONE';
         }
     </script>
 </body>
