@@ -246,7 +246,7 @@
 	method="POST"
 >
     <!-- Optional: Redirect to your success page -->
-    <input name="_redirect" type="hidden" value="pearlieeras.com/presale">
+    <input name="_redirect" type="hidden" value="http://pearlieeras.com/presale">
 
     <!-- Optional: Redirect to your error page -->
     <!--<input name="_redirect_error" type="hidden" value="https://yoursite/error">-->
@@ -356,11 +356,11 @@
             //document.getElementsByName('name').values = guest;
             document.getElementById('name').value = guest;
             document.getElementById('name-text').innerText = 'Welcome, ' +guest;
-            document.getElementsByName('_redirect')[0].value = 'pearlieeras.com/success' + querystring;
+            document.getElementsByName('_redirect')[0].value = 'http://pearlieeras.com/success' + querystring;
             //document.getElementsByName('name').s
             //document.getElementById('namebox').style.display = 'none';
         } else {
-            document.getElementsByName('_redirect')[0].value = 'pearlieeras.com/success?DONE';
+            document.getElementsByName('_redirect')[0].value = 'http://pearlieeras.com/success?DONE';
         }
     </script>
 </body>
