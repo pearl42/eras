@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Eras Party Tickets</title>
-
+    <title>Eras Party Tickets</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -30,6 +29,12 @@
             .header {
                 margin-top:0px;
             }
+            .scroll-text {
+                visibility:hidden;
+            }
+            bounce {
+                opacity:hidden;
+            }
         }
         @media (max-width: 1000px) {
             .header {
@@ -39,7 +44,7 @@
         }
 
         .header {
-            background-image: url('ticketmaster.png');
+            background-image: url('tsbigedit.png');
             background-size: cover;
             color: #fff;
             /*padding: 20px;*/
@@ -52,6 +57,49 @@
             height:58vw;
             max-height:100vh;
             max-width:100%;
+        }
+
+.flicker {
+            animation: flickerAnimation 3.5s infinite;
+        }
+
+        @keyframes flickerAnimation {
+            0% {
+                background-image: url('tsbigedit.png');
+            }
+            92% {
+                background-image: url('tsbigedit.png');
+            }
+            93% {
+                background-image: url('ticketmaster.png');
+            }
+            99% {
+                background-image: url('ticketmaster.png');
+            }
+            100% {
+                background-image: url('tsbigedit.png');
+            }
+        }
+
+        .flicker2 {
+            animation: flickerAnimation2 .65s infinite;
+        }
+        @keyframes flickerAnimation2 {
+            0% {
+                background-image: url('tsbigedit.png');
+            }
+            79% {
+                background-image: url('tsbigedit.png');
+            }
+            80% {
+                background-image: url('ticketmaster.png');
+            }
+            99% {
+                background-image: url('ticketmaster.png');
+            }
+            100% {
+                background-image: url('tsbigedit.png');
+            }
         }
 
         .ticketmaster-text {
@@ -151,11 +199,20 @@
   }
 }
 
+@media (max-width: 600px) {
+            .scroll-text {
+                visibility:hidden;
+            }
+            bounce {
+                opacity:0;
+            }
+        }
+
     </style>
 </head>
 <body>
     <!--<div style = "position:absolute;background-color:#2c324c;height:60vh;width:100vw;z-index:-999;"></div> -->
-    <div class="header">
+    <div class="header" id="headerimg">
         <div class="ticketmaster-text">ticketmimester</div>
         <!--<div class="header-info">
             <p>SAT  ·  NOV 18, 2023  ·  7PM</p>
@@ -205,6 +262,22 @@
                 document.getElementById('invalid').style.visibility = 'visible';
             }
         }
+setTimeout(function () {
+document.getElementById('headerimg').classList.add('flicker');
+            //document.body.classList.add("flicker");
+        }, 1000); // Start the flicker event after 2 seconds
+
+setTimeout(function () {
+            //document.getElementById('headerimg').style.animation = "flickerAnimation 1.2s infinite"; // Speed up
+            document.getElementById('headerimg').classList.remove('flicker');
+            document.getElementById('headerimg').classList.add('flicker2');
+        }, 8500); // Display image B after 4 seconds of flickering
+
+        setTimeout(function () {
+            document.getElementById('headerimg').style.animation = "none"; // Stop the flicker animation
+            document.getElementById('headerimg').style.backgroundImage = "url('ticketmaster.png')";
+        }, 10500); // Display image B after 4 seconds of flickering
+
         
     </script>
 </body>
