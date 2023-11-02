@@ -212,7 +212,7 @@
                 opacity:0;
             }
 		.ticketmaster-text {
-			font-size:14px;
+			font-size:16px;
 		}
         }
 
@@ -304,7 +304,7 @@
         function submit() {
             var allcodes = ['KKLKPW', 'LOMLEL', 'LAMBY', 'NNLKPW', 'RHLKPW', 'MJLKPW', 'CCLKPW', 'ADTBH', 'TTLKPW', 'RKLKPW', 'LILKPW','GABBO'];
             var submitval = document.getElementById('presalecode').value.toUpperCase();
-            console.log("is it getting here?")
+		submitval = submitval.trim();
             if (allcodes.includes(submitval)){
                 console.log("presale code exists!");
                 location.href = '/presale?'+submitval;
